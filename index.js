@@ -1,8 +1,10 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 let quoteObj = {};
+app.use(cors());
 fs.readFile('./db/quotes.json','utf8',(err,data)=>{
     if(err){
         console.log(`quotes db read failed.`);
